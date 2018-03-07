@@ -21,6 +21,14 @@ X_rec = zeros(size(Z, 1), size(U, 1));
 %               Notice that U(j, 1:K) is a row vector.
 %               
 
+% first k columns of U
+
+U_reduce = U(:, 1:K);
+
+% iterate to recover data points based on top K eigenvectors
+for i = 1:size(Z, 1)
+  X_rec(i, :) = (U_reduce*Z(i, :)')';
+end
 
 
 % =============================================================
